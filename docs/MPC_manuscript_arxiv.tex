@@ -1,0 +1,113 @@
+\documentclass[10pt,onecolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage[bottom]{footmisc}
+\usepackage{booktabs}
+\usepackage{gensymb}
+\usepackage{csquotes}
+\usepackage{wasysym}
+\usepackage{float}
+% Include other packages here, before hyperref.
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    % commentstyle=\color[rgb]{0.133,0.545,0.133},
+    commentstyle=\color[rgb]{0.344,0.430,0.457},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+\newcommand{\explain}[2]{\underbrace{#1}_{\mbox{\footnotesize{#2}}}}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+% If you comment hyperref and then uncomment it, you should deletescp -r yzhou@17.214.171.193:/home/yzhou/kd_data .
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+ \cvprfinalcopy % *** Uncomment this line for the final submission
+
+% \def\cvprPaperID{3333} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ifcvprfinal\pagestyle{empty}\fi
+
+%%%%%%%%% TITLE
+\title{Model Predictive Control Project}
+
+\author{Tao Li\\
+% Institution1 address\\
+{\tt\small litroncn@gmail.com}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+}
+
+
+\begin{document}
+
+
+\maketitle
+% \thispagestyle{empty}
+
+%%%%%%%%% BODY TEXT
+
+\begin{figure}[!ht]
+\centering
+    \includegraphics[width=0.9\linewidth]{preface.png}
+\end{figure}
+
+%------------------------------------------------------------------------
+\input{Section_Introduction}
+
+% ------------------------------------------------------------------------
+\input{Section_VehicleModel}
+
+%-------------------------------------------------------------------------
+\input{Section_ModelPredictiveControl}
+
+%------------------------------------------------------------------------
+\input{Section_Conclusion}
+
+%------------------------------------------------------------------------
+\input{Section_Acknowledgement}
+
+%------------------------------------------------------------------------
+\input{Section_Video}
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{refb}
+}
+
+\end{document}

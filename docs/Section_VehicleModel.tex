@@ -1,0 +1,56 @@
+\section{Vehicle Model}
+
+\subsection{Kinematic Bicycle Model}
+Kinematic models are simplifications of dynamic models that ignore tire forces, gravity, and mass.
+This simplification reduces the accuracy of the models, but it also makes them more tractable.
+At low and moderate speeds, kinematic models often approximate the actual vehicle dynamics.
+The vehicle model is described by
+
+\begin{equation}\label{eq:VehicleModel}
+\begin{bmatrix}
+x_{t+1}\\
+y_{t+1}
+\end{bmatrix} = f(x_t, u_t)
+\end{equation}
+where $f(x_t, u_t)$ is the vehicle dynamic state update equation. The vectors $x_t$ and $u_t$ collect the states and inputs of the vehicle at time $t$
+\begin{subequations}\label{eq:StateInputVector}
+\begin{align}
+x_t &= [x_t ~ y_t ~\psi_t ~ v_t ~ cte_t ~ e_{\psi_t} ]\\
+u_t &= [\delta_t ~ a_t ]
+\end{align}
+\end{subequations}
+where $cte_t$ represents the distance travelled along the center-line of the road, $e_{\psi_t}$ the heading angle error between the vehicle and the path. $x_t$, $y_t$ and ${\psi}_{t}$ are the vehicle longitudinal position, lateral position and yaw angle, respectively. The inputs are the longitudinal acceleration $a_t$ and the steering angle $\delta_t$.
+
+We've now defined the state, actuators and how the state changes over time based on the previous state and current actuator inputs.
+
+Here defines update state as  follows:
+\begin{subequations}\label{eq:StateUpdate}
+\begin{align}
+x_{t+1} &= x_t + v_t * \cos({\psi}_t) * dt\\
+y_{t+1} &= y_t + v_t * \sin({\psi}_t) * dt\\
+\psi_{t+1} &= \psi_t + \frac{v_t}{L_f} * \delta_t * dt\\
+v_{t+1} &= v_t + a_t * dt\\
+% cte_{t+1} &= \underbrace{f(x_t) - y_t}_{\text{being current cross track error}} + v_t * \sin(e_{\psi_t}) * dt\\
+cte_{t+1} &= \explain{f(x_t) - y_t}{cross track error} + v_t * \sin(e_{\psi_t}) * dt\\
+e_{\psi_{t+1}} &= \explain{\psi_t - {\psi}_{des_t}}{orientation error} + \frac{v_t}{L_f} * \delta_t * dt
+\end{align}
+\end{subequations}
+
+\begin{table}[h]
+	%\begin{center}
+	\caption{Notations}
+	\label{tab:notations}
+	\begin{tabular}{p{1.45cm} p{15.35cm}}
+		\toprule
+		$x$, $y$ & Position of the vehicle's CoM \\
+		$\psi$ & Yaw angle of the car body \\
+		$v$ & Vehicle speed \\
+                $cte$ & Error between the center of the road and the vehicle's position \\
+                $e_{\psi}$ & Heading angle error between the vehicle and the path \\
+		$\delta$ & Steering angle of the front wheels \\
+                $a$ & Negative values signifying braking, positive values signifying accelerating \\
+                $L_f$ & Distance between the front of the vehicle and its center of gravity\\
+		\bottomrule
+	\end{tabular}
+	%\end{center}
+\end{table}

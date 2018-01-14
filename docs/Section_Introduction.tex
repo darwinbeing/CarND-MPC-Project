@@ -1,0 +1,8 @@
+\section{Introduction}
+
+In this project, we'll implement Model Predictive Control to drive the
+vehicle around the track even additional latency between command.
+
+Model Predictive Control (MPC) is a control strategy that is suitable for optimizing the performance of constrained systems. Constraints are present in all control systems due to the physical and environmental limits on plant operation. Through a systematic handling of constraints, MPC can improve the performance of a system by allowing it to safely operate near constraint boundaries. This article develops a controller. Which is based on a nonlinear model of the plant and is successfully applied to a real-time 4 degrees-of-freedom(2 Cartesian coordinates, orientation and heading) autonomous vehicle system, used to simulate vehicle like motions in a simulator.
+
+We will use the powerful tool Ipopt, CppAD to find locally optimal values while keeping the constraints set directly to the actuators and the constraints defined by the vehicle model.

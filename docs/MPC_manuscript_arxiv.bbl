@@ -1,0 +1,17 @@
+\begin{thebibliography}{10}\itemsep=-1pt
+
+\bibitem{REF:Ostafew2014}
+C.~J. Ostafew, A.~P. Schoellig, and T.~D. Barfoot.
+\newblock Learning-based nonlinear model predictive control to improve vision-based mobile robot path-tracking in challenging outdoor environments.
+\newblock In {\em 2014 IEEE International Conference on Robotics and Automation (ICRA)}, pp. 4029--4036, 2014.
+
+\bibitem{REF:Ji2016}
+J.~Ji, A.~Khajepour, W.~Melek, and Y.~Huang.
+\newblock Path Planning and Tracking for Vehicle Collision Avoidance based on Model Predictive Control with Multi-Constraints. \newblock In {\em IEEE Transactions on Vehicular Technology}, vol. 9545, no. April, pp. 1--1, 2016.
+
+\bibitem{REF:Siampis2015}
+E.~Siampis, E.~Velenis, and S.~Longo.
+\newblock Torque Vectoring Model Predictive Control with Velocity Regulation Near the Limits of Handling.
+\newblock In {\em Vehicle System Dynamics}, pp. 2553--2558, 2015.
+
+\end{thebibliography}

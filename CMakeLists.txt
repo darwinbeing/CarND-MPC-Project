@@ -6,6 +6,14 @@ cmake_minimum_required (VERSION 3.5)
 # turn on -03 for best performance
 add_definitions(-std=c++11 -O3)
 
+# Options. Turn on with 'cmake -Dmyvarname=ON'.
+option(ENABLE_MATPLOTLIB "Include matplotlib." OFF)
+
+message (STATUS "ENABLE_MATPLOTLIB=${ENABLE_MATPLOTLIB}")
+if(ENABLE_MATPLOTLIB)
+add_definitions(-DMATPLOTLIB=ON)
+endif()
+
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS "${CXX_FLAGS}")
 
@@ -25,5 +33,8 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 add_executable(mpc ${sources})
 
-target_link_libraries(mpc ipopt z ssl uv uWS)
-
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+target_link_libraries(mpc ipopt z ssl uv uWS python2.7)
+else()
+target_link_libraries(mpc ipopt z ssl uv uWS python)
+endif()
